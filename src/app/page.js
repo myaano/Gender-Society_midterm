@@ -738,7 +738,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="absolute top-[45%] md:top-[50%] text-white">
-                    <div className="flex gap-2 font-cormorant_infant text-3xl lg:text-7xl">
+                    <div className="flex gap-2 font-cormorant_infant text-3xl lg:text-7xl ">
                       <h1>Performative</h1>
                       <h1 className="text-[#df0505]">Masculinity</h1>
                     </div>
@@ -752,7 +752,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="hidden lg:block h-screen lg:shrink-0 lg:w-screen font-cormorant_infant relative px-40 bg-transparent">
-                <h1 className="text-5xl lg:absolute lg:top-[30%] text-shadow-white">
+                <h1 className="text-5xl lg:absolute lg:top-[30%] text-white">
                   What is Performative Masculinity?
                 </h1>
               </div>
