@@ -1104,7 +1104,7 @@ export default function Home() {
                     <h1>Related Issue?</h1>
                   </div>
                 </div>
-                <div className=" grid grid-cols-1 gap-y-4 text-lg lg:text-3xl flex-1 relative font-light ">
+                <div className=" grid grid-cols-1 gap-y-4 text-sm lg:text-3xl flex-1 relative font-light ">
                   <div className="absolute inset-0 px-5 pt-10 lg:px-20 flex explanation3">
                     <p>
                       Pitt and Fox also argues that these categories are not a
