@@ -1196,7 +1196,7 @@ export default function Home() {
                 <h1 className="baklang text-6xl lg:text-[200px] font-semibold leading-none [text-box:trim-both_cap_alphabetic] overflow-hidden">
                   BAKLANG
                 </h1>
-                <div className="names grid grid-cols-2 lg:gap-x-100 border-t border-white mt-40 lg:mt-20 mx-20 overflow-hidden font-light">
+                <div className="names grid grid-cols-2 lg:gap-x-100 border-t border-white mt-40 lg:mt-20 lg:mx-20 overflow-hidden font-light">
                   <div className="grid grid-cols-2">
                     <h1>Mark Llorca</h1>
                     <h1>John Lloyd Escultura</h1>
