@@ -9,12 +9,13 @@ import Vittar from "../../public/pablo-vittar-sample.jpg";
 import Pattinson from "../../public/Robert-Pattinson-by-Peter-Lindbergh_fy1.jpg";
 import Takumi from "../../public/takumi-tani-viral-post.jpg";
 import Performative_Male from "../../public/PERFORMATIVE-MALE-MATCHA-960x1279.webp";
+import Bakla from "../../public/baklang-naglalaptop.jpg";
 
 import Matcha from "../../public/matcha-latte.jpg";
 import Atomic from "../../public/atomic-habit.jpg";
 import Performative from "../../public/performative-feature-image.webp";
 
-import { useEffect, useRef, useState, useLayoutEffect } from "react";
+import { useEffect, useRef } from "react";
 
 // lenis
 import { ReactLenis } from "lenis/react";
@@ -24,7 +25,6 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { CustomEase } from "gsap/CustomEase";
 // gsap
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -59,6 +59,8 @@ export default function Home() {
   const HeterodoxRef = useRef(null);
   const CacodoxRef = useRef(null);
 
+  const footerCont = useRef(null);
+  const BaklaImageRef = useRef(null);
   useGSAP(() => {
     const mm = gsap.matchMedia();
 
@@ -520,6 +522,122 @@ export default function Home() {
         },
         "+=5",
       );
+
+    // overall pin, timeline, textsplit
+    const par1 = new SplitText(".par1", { type: "lines" });
+    const Par1 = par1.lines;
+    const par2 = new SplitText(".par2", { type: "lines" });
+    const Par2 = par2.lines;
+
+    const overallTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".overallSection",
+        start: "top top",
+        end: "+=300%",
+        pin: true,
+        scrub: true,
+      },
+    });
+    //make the fontSize snap to 128px/text-9xl in lg using power4.inOut and another fixed text for mobile
+    overallTimeline
+      .from(".overallText", {
+        fontSize: () => (window.innerWidth >= 1024 ? "248px" : "100px"),
+        ease: "power4.inOut",
+        duration: 1,
+      })
+      .from(
+        ".overallPar",
+        {
+          flexGrow: 0,
+          ease: "power4.inOut",
+        },
+        "+=0.5",
+      )
+      .from(
+        Par1,
+        {
+          opacity: 0,
+          xPercent: 20,
+          stagger: 0.06,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "<0.3",
+      )
+      .to(Par1, {
+        opacity: 0,
+        stagger: 0.06,
+        duration: 0.5,
+        ease: "power2.out",
+      })
+      .from(
+        Par2,
+        {
+          opacity: 0,
+          xPercent: 20,
+          stagger: 0.06,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        "<0.3",
+      );
+
+    //footer textsplits and animations
+
+    const baklang1 = new SplitText(".baklang", { type: "words" });
+    const Baklang1 = baklang1.words;
+
+    const naglalaptop = new SplitText(".naglalaptop", { type: "words" });
+    const Naglalaptop = naglalaptop.words;
+
+    const names = new SplitText(".names", { type: "words" });
+    const Names = names.words;
+
+    gsap.from(Baklang1, {
+      yPercent: "100",
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".footer",
+        start: "top 80%",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+    gsap.from(Naglalaptop, {
+      yPercent: "100",
+      duration: 3,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".naglalaptop",
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+
+    gsap.from(Names, {
+      yPercent: "100",
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".names",
+        start: "top center",
+        end: "bottom 30%",
+        scrub: true,
+      },
+    });
+
+    gsap.from(BaklaImageRef.current, {
+      yPercent: "100",
+      scrollTrigger: {
+        trigger: footerCont.current,
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: true,
+      },
+    });
+    // use BaklangImageRef = useRef(null); here for parallax
   }, []);
 
   //todo mobile screen for landing page
@@ -535,12 +653,12 @@ export default function Home() {
         smoothWheel={true}
         ref={lenisRef}
       >
-        <div className="overflow-x-clip bg-black">
+        <div className="overflow-clip bg-black">
           <div
             id="horizontal-scroll-container"
             className="relative lg:h-screen flex  "
           >
-            <div className="hidden lg:block absolute z-0 top-[40%] bg-white h-5 min-w-[160vw] "></div>
+            <div className="hidden lg:block absolute z-0 top-[40%] bg-white h-5 min-w-[160vw]"></div>
             <section
               ref={container}
               className="lg:absolute z-10 lg:flex w-full will-change-transform"
@@ -1016,14 +1134,100 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <section className="h-screen bg-black text-black font-urbanist flex justify-center items-center ">
-            <div className="flex-1 bg-blue-500">
-              <h1 className="font-bold text-white text-7xl flex justify-center items-center">
+          <section className="overallSection h-screen bg-black text-black font-urbanist flex justify-center items-center overflow-hidden">
+            <div className="flex-1 flex flex-col h-full max-h-[50vh] lg:flex-row justify-center items-center text-white px-5 lg:px-20">
+              <h1 className="overallText font-bold text-5xl lg:text-9xl text-center">
                 Overall
               </h1>
+              <div className="overallPar flex-1 max-w-[60ch] text-xl font-light grid items-center overflow-hidden pl-5">
+                <p className=" par1 col-start-1 row-start-1">
+                  Performative Masculinity is a social issue due to the fact
+                  that it affects both sexes due to societal norms, expectations
+                  and traditions that affects gender. It also emphasizes that
+                  masculinity isn't a fixed notion but rather a continuum where
+                  individuals can shift between them depending on context.
+                </p>
+                <p className=" par2 col-start-1 row-start-1">
+                  Understanding Performative Masculinity allows us to understand
+                  masculinity as a whole, recognizing behaviours, influence,
+                  socially established norms, expectations and traditions.
+                  Therefore understanding its characteristics as a social
+                  construct enacts a deeper understanding of its challenges, or
+                  how it is maintained and practiced.
+                </p>
+              </div>
             </div>
           </section>
-          <section className="h-screen bg-green-500">awd</section>
+          <section className="h-screen flex bg-black py-20">
+            <div className="bg-[#F0A500] flex-1 px-5 lg:px-20 py-10 flex flex-col gap-y-5">
+              <h1 className="font-cormorant_infant text-4xl lg:text-6xl text-black border-b border-black">
+                References
+              </h1>
+              <div className="font-urbanist flex flex-col gap-y-5 lg:text-xl text-white">
+                <p>Bourdieu, Pierre, Masculine Domination, 1998</p>
+                <p className="break-all">
+                  Taraban, Orion. "Performative masculinity: it's not what you
+                  think". YouTube, uploaded by Orion Taraban, 30 Mar. 2026,
+                  “https://youtu.be/EBAKVDSpDQ0”
+                </p>
+                <p className="break-all">
+                  Caffrey, Cait. "Doing Gender" Article Sociology, 2019
+                  "https://www.ebsco.com/research-starters/sociology/doing-gender/"
+                </p>
+                <p className="break-all">
+                  Susan, Pitt L., Fox, Christopher A. "Performative Masculinity:
+                  A New Theory on Masculinity" 2012
+                  "https://brill.com/display/book/edcoll/9781848880948/BP000006.xml"
+                </p>
+                <p className="break-all">
+                  O'Toole, Olga. "Habitus, Culture, and Human Sexuality. Notions
+                  of Consent in the Sexual Habitus" 2021, Journal
+                  “https://ejournals.eu/pliki_artykulu_czasopisma/pelny_tekst/17549334-9695-410b-b93a-00d35925bd46/pobierz”
+                </p>
+              </div>
+            </div>
+          </section>
+          <section
+            ref={footerCont}
+            className="footer h-[80vh] lg:h-screen font-urbanist flex-1 relative"
+          >
+            <div className="flex flex-col h-full justify-between">
+              <div>
+                <h1 className="baklang text-6xl lg:text-[200px] font-semibold leading-none [text-box:trim-both_cap_alphabetic] overflow-hidden">
+                  BAKLANG
+                </h1>
+                <div className="names grid grid-cols-2 lg:gap-x-100 border-t border-white mt-40 lg:mt-20 mx-20 overflow-hidden font-light">
+                  <div className="grid grid-cols-2">
+                    <h1>Mark Llorca</h1>
+                    <h1>John Lloyd Escultura</h1>
+                  </div>
+                  <div className="grid grid-cols-2">
+                    <h1 className="text-end">Raydan Tagub</h1>
+                    <h1 className="text-end">Seann Wyett Larga</h1>
+                  </div>
+                </div>
+              </div>
+
+              <h1 className="naglalaptop text-6xl lg:text-[200px] font-semibold leading-none [text-box:trim-both_cap_alphabetic] overflow-hidden">
+                NAGLALAPTOP
+              </h1>
+            </div>
+            <div className="absolute inset-x-0 place-items-center flex justify-center bottom-0">
+              <div
+                ref={BaklaImageRef}
+                className="relative w-50 h-90 lg:w-100 lg:h-140"
+              >
+                <Image
+                  src={Bakla}
+                  alt="Takumi"
+                  fill={true}
+                  loading="eager"
+                  className="object-cover "
+                  sizes="(min-width: 1024px) 50vw, 100vw "
+                />
+              </div>
+            </div>
+          </section>
         </div>
       </ReactLenis>
     </>
