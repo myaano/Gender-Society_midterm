@@ -774,7 +774,7 @@ export default function Home() {
                 conform to social expectations, to gain acceptance or reinfoce a
                 particular masculine identity.
               </h1>
-              <div className="font-urbanist flex gap-10 flex-col">
+              <div className="font-urbanist flex gap-10 flex-col text-white">
                 <div className=" flex flex-col text-sm lg:text-2xl gap-10">
                   <p className="w-full">
                     "I prefer not to apply make-up because that will make me
@@ -965,7 +965,7 @@ export default function Home() {
               </div>
             </div>
             <div className="cont3 h-screen flex flex-col lg:flex-row justify-end items-end lg:justify-normal lg:items-stretch px-5 lg:px-0">
-              <div className="flex-1 pt-10 lg:px-20 lg:pt-20">
+              <div className="flex-1 pt-10 lg:px-20 lg:pt-20 text-white">
                 <div>
                   <div className="grid grid-cols-1 gap-y-5">
                     <h1 className="orthodox text-3xl lg:text-6xl">
@@ -1005,7 +1005,7 @@ export default function Home() {
                 ></div>
               </div>
             </div>
-            <div className="cont4 h-screen flex flex-col lg:flex-row justify-end items-end lg:justify-normal lg:items-stretch px-5 lg:px-0">
+            <div className="cont4 h-screen flex flex-col lg:flex-row justify-end items-end lg:justify-normal lg:items-stretch px-5 lg:px-0 text-white">
               <div className="heterodox flex-1 lg:px-20">
                 <h1>
                   The person in the image is actually a Dad with 2 kids
@@ -1047,7 +1047,7 @@ export default function Home() {
                 ></div>
               </div>
             </div>
-            <div className="cont5 h-screen flex flex-col lg:flex-row justify-end items-end lg:justify-normal lg:items-stretch px-5 lg:px-0">
+            <div className="cont5 h-screen flex flex-col lg:flex-row justify-end items-end lg:justify-normal lg:items-stretch px-5 lg:px-0 text-white">
               <div className="flex-1 pt-10 lg:px-20 lg:pt-20">
                 <div>
                   <div className="grid grid-cols-1 gap-y-5">
@@ -1189,7 +1189,7 @@ export default function Home() {
           </section>
           <section
             ref={footerCont}
-            className="footer h-[80vh] lg:h-screen font-urbanist flex-1 relative"
+            className="footer h-[80vh] lg:h-screen font-urbanist flex-1 relative text-white"
           >
             <div className="flex flex-col h-full justify-between">
               <div>
