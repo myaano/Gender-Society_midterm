@@ -538,7 +538,7 @@ export default function Home() {
         scrub: true,
       },
     });
-    //make the fontSize snap to 128px/text-9xl in lg using power4.inOut and another fixed text for mobile
+
     overallTimeline
       .from(".overallText", {
         fontSize: () => (window.innerWidth >= 1024 ? "248px" : "100px"),
@@ -629,7 +629,7 @@ export default function Home() {
     });
 
     gsap.from(BaklaImageRef.current, {
-      yPercent: "100",
+      yPercent: "200",
       scrollTrigger: {
         trigger: footerCont.current,
         start: "top bottom",
@@ -1191,12 +1191,12 @@ export default function Home() {
             ref={footerCont}
             className="footer h-[80vh] lg:h-screen font-urbanist flex-1 relative text-white"
           >
-            <div className="flex flex-col h-full justify-between">
+            <div className="flex flex-col h-full justify-between relative">
               <div>
                 <h1 className="baklang text-6xl lg:text-[200px] font-semibold leading-none [text-box:trim-both_cap_alphabetic] overflow-hidden">
                   BAKLANG
                 </h1>
-                <div className="names grid grid-cols-2 lg:gap-x-100 border-t border-white mt-40 lg:mt-20 lg:mx-20 overflow-hidden font-light text-sm lg:text-base">
+                <div className="names grid grid-cols-2 lg:gap-x-100 border-t border-white mt-40 lg:mt-20 lg:mx-20 overflow-hidden font-light text-sm lg:text-xl">
                   <div className="grid grid-cols-2">
                     <h1>Mark Llorca</h1>
                     <h1>John Lloyd Escultura</h1>
@@ -1208,11 +1208,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <h1 className="naglalaptop text-6xl lg:text-[200px] font-semibold leading-none [text-box:trim-both_cap_alphabetic] overflow-hidden">
+              <h1 className="naglalaptop text-6xl lg:text-[200px] font-semibold leading-none [text-box:trim-both_cap_alphabetic] overflow-hidden absolute z-20 bottom-0">
                 NAGLALAPTOP
               </h1>
             </div>
-            <div className="absolute inset-x-0 place-items-center flex justify-center bottom-0">
+            <div className="absolute inset-x-0 place-items-center flex justify-center bottom-0 z-10">
               <div
                 ref={BaklaImageRef}
                 className="relative w-50 h-90 lg:w-100 lg:h-140"
