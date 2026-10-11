@@ -33,3 +33,9 @@ html {
 html::-webkit-scrollbar {
   display: none; /* older WebKit/Blink browsers */
 }
+
+@media (min-width: 1536px) {
+  html {
+    font-size: clamp(16px, min(calc(100vw / 96), calc(100vh / 54)), 40px);
+  }
+}
