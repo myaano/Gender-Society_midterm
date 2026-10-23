@@ -4,7 +4,9 @@ import Image from "next/image";
 
 //images
 import Jacked from "../../public/andrew-JACKED.jpg";
-import Femboy from "../../public/femboy-sample-1.jpg";
+
+import Takumi2 from "../../public/takumi-tani2.jpg";
+
 import Vittar from "../../public/pablo-vittar-sample.jpg";
 import Pattinson from "../../public/Robert-Pattinson-by-Peter-Lindbergh_fy1.jpg";
 import Takumi from "../../public/takumi-tani-viral-post.jpg";
@@ -140,11 +142,11 @@ export default function Home() {
         revealcont.current,
         {
           clipPath: "polygon(0% 0%, 101% 0%, 101% 0%, 0% 0%)",
-          duration: 3,
+          duration: 2,
         },
         "+=1",
       )
-      .to({}, { duration: 5 });
+      .to({}, { duration: 3 });
 
     //cont 1 scroll trigger split texts
 
@@ -711,8 +713,8 @@ export default function Home() {
                           className=" h-60 w-40 md:h-70 md:w-50 relative"
                         >
                           <Image
-                            src={Femboy}
-                            alt="Femboy"
+                            src={Takumi2}
+                            alt="Takumi2"
                             fill={true}
                             loading="eager"
                             className="object-cover"
